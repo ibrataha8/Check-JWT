@@ -9,16 +9,19 @@ function App() {
     setResult("Verifying...");
 
     try {
-      const response = await fetch("http://localhost:5000/verifyToken", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          token: token,
-          secretKey: secretKey,
-        }),
-      });
+      const response = await fetch(
+        "https://back-jwt-check.onrender.com/verifyToken",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: token,
+            secretKey: secretKey,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
